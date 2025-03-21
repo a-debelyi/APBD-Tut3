@@ -29,4 +29,9 @@ public class LiquidContainer : Container, IHazardNotifier
     {
         Console.WriteLine($"!! <Hazardous situation - Liquid container {SerialNumber}>: {message}");
     }
+    
+    public override string ToString()
+    {
+        return base.ToString() + $", IsHazardous: {IsHazardous}";
+    }
 }

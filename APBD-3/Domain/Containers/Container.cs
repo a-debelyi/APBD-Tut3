@@ -20,6 +20,11 @@ public abstract class Container
         SerialNumber = $"KON-{type}-{_id++}";
     }
 
+    public double GetTotalWeight()
+    {
+        return TareWeight + CargoMass;
+    }
+
     public virtual void EmptyCargo()
     {
         CargoMass = 0;
@@ -31,7 +36,7 @@ public abstract class Container
         if (newCargoMass > MaxPayload)
         {
             throw new OverfillException(
-                $"Attempt to load {cargoMass}kg for container {SerialNumber} exceeds container's maximum payload of {MaxPayload}");
+                $"Attempt to load {cargoMass} kg for container {SerialNumber} exceeds container's maximum payload of {MaxPayload}");
         }
 
         CargoMass = newCargoMass;

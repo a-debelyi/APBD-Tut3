@@ -25,7 +25,7 @@ public class RefrigeratedContainer : Container
     {
         if (!_productTemperatures.ContainsKey(productType))
         {
-            throw new ProductNotFoundException($"There is no {productType} product");
+            throw new ResourceNotFoundException($"There is no {productType} product");
         }
 
         var requiredProductTemperature = _productTemperatures[productType];
@@ -38,5 +38,10 @@ public class RefrigeratedContainer : Container
 
         ProductType = productType;
         MaintainedTemperature = maintainedTemperature;
+    }
+
+    public override string ToString()
+    {
+        return base.ToString() + $", Product type: {ProductType}, Maintained temperature: {MaintainedTemperature}°C";
     }
 }
