@@ -15,7 +15,7 @@ public class ContainerShip
         _containers = new List<Container>();
     }
 
-    private bool isAllowedToLoad(Container container)
+    private bool IsAllowedToLoad(Container container)
     {
         var containersWeightTons = _containers.Sum(cont => cont.GetTotalWeight()) / 1000.0;
         var newContainerWeightTons = container.GetTotalWeight() / 1000.0;
@@ -31,7 +31,7 @@ public class ContainerShip
         }
 
         var newContainerWeightTons = container.GetTotalWeight() / 1000.0;
-        if (!isAllowedToLoad(container))
+        if (!IsAllowedToLoad(container))
         {
             throw new OverfillException(
                 $"Attempt to load additional {newContainerWeightTons} tons to ship exceeds ship's maximum weight of {MaxContainersWeightInTons} tons");
@@ -75,7 +75,7 @@ public class ContainerShip
     {
         var oldContainer = GetContainer(serialNumber);
         RemoveContainer(serialNumber);
-        if (!isAllowedToLoad(newContainer))
+        if (!IsAllowedToLoad(newContainer))
         {
             LoadContainer(oldContainer);
             var newContainerWeightTons = newContainer.GetTotalWeight() / 1000.0;

@@ -44,7 +44,7 @@ public abstract class Container
 
     public override string ToString()
     {
-        return $"[Serial number: {SerialNumber}, Tare weight: {TareWeight} kg, Height: {Height} cm," +
+        return $"[Serial number: {SerialNumber}, Tare weight: {TareWeight} kg, Height: {Height} cm, " +
                $"Depth: {Depth} cm, Maximum payload: {MaxPayload} kg, Cargo mass: {CargoMass} kg]";
     }
 }
